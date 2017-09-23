@@ -45,13 +45,13 @@ export default class App extends React.Component {
   handleSubmit(event) {
     console.log('This is the balance: ' + this.state.balance + ', This is the rate: ' + this.state.rate + ', This is the selected term: ' + this.state.term);
 
-    let r = ((this.state.rate/12)/100);
+    let r = ((this.state.rate / 12) / 100);
     let n = (this.state.term * 12);
     let denominatorTerm = (1 + (r));
-    let denominator = (Math.pow(denominatorTerm, (n)) - 1); 
+    let denominator = (Math.pow(denominatorTerm, (n)) - 1);
     let numeratorTerm = (Math.pow((1 + r), (n)))
     let numerator = ((r) * numeratorTerm);
-    let fraction = numerator/denominator;
+    let fraction = numerator / denominator;
     let output = Number(Math.round(((this.state.balance * fraction) * 100)) / 100);
     this.setState({output: output});
     console.log(output)
@@ -108,7 +108,8 @@ export default class App extends React.Component {
             className="btn btn-primary btn-block">Calculate</button>
         </div>
 
-        <h3 className='form-group alert' name='output' id='output'>${this.state.output} is your payment.</h3>
+        <h3 className='form-group alert' name='output' id='output'>${this.state.output}
+          is your payment.</h3>
       </div>
     );
   }
